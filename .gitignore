@@ -1,0 +1,26 @@
+# Rust build artifacts
+player/target/
+
+# Python environment used by the transcription worker
+.venv/
+
+# Downloaded / derived media (re-fetchable, not source)
+*.mp3
+*.wav
+*.m4a
+*.ogg
+*.mp4
+
+# Run logs
+*.log
+
+# Downloaded model weights / archives (cached under ~/transcribe-models)
+*.onnx
+*.onnx_data
+*.bin
+*.gguf
+*.tar.bz2
+*.tgz
+
+# Machine-local cargo config (SHERPA_ONNX_LIB_DIR + rpath for the sherpa build)
+player/.cargo/

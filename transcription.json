@@ -1,0 +1,3403 @@
+{
+  "language": "de",
+  "model": "whisper-large-v3",
+  "segments": [
+    {
+      "end": 3.8,
+      "speaker_id": null,
+      "start": 3.4,
+      "text": "Fly",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 4.0,
+      "speaker_id": null,
+      "start": 3.8,
+      "text": " Dubai",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 4.4,
+      "speaker_id": null,
+      "start": 4.0,
+      "text": " Co",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 4.7,
+      "speaker_id": null,
+      "start": 4.4,
+      "text": "-Pilot",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 5.0,
+      "speaker_id": null,
+      "start": 4.7,
+      "text": " galt",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 5.2,
+      "speaker_id": null,
+      "start": 5.0,
+      "text": " als",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 6.2,
+      "speaker_id": null,
+      "start": 5.2,
+      "text": " Sicherheitsrisiko.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 9.0,
+      "speaker_id": null,
+      "start": 8.4,
+      "text": " Automatisch",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 9.3,
+      "speaker_id": null,
+      "start": 9.0,
+      "text": " vertonte",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 9.9,
+      "speaker_id": null,
+      "start": 9.3,
+      "text": " Artikel.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 12.5,
+      "speaker_id": null,
+      "start": 11.9,
+      "text": " Der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 12.8,
+      "speaker_id": null,
+      "start": 12.5,
+      "text": " Mann,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 13.4,
+      "speaker_id": null,
+      "start": 12.9,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 13.6,
+      "speaker_id": null,
+      "start": 13.4,
+      "text": " den",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 13.8,
+      "speaker_id": null,
+      "start": 13.6,
+      "text": " Fly",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 14.0,
+      "speaker_id": null,
+      "start": 13.8,
+      "text": " Dubai",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 14.2,
+      "speaker_id": null,
+      "start": 14.0,
+      "text": " Flug",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 14.4,
+      "speaker_id": null,
+      "start": 14.2,
+      "text": " nach",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 14.7,
+      "speaker_id": null,
+      "start": 14.4,
+      "text": " Tel",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 15.0,
+      "speaker_id": null,
+      "start": 14.7,
+      "text": " Aviv",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 15.1,
+      "speaker_id": null,
+      "start": 15.0,
+      "text": " wohl",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 15.2,
+      "speaker_id": null,
+      "start": 15.1,
+      "text": " zum",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 15.6,
+      "speaker_id": null,
+      "start": 15.2,
+      "text": " Absturz",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 15.8,
+      "speaker_id": null,
+      "start": 15.6,
+      "text": " bringen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 16.2,
+      "speaker_id": null,
+      "start": 15.8,
+      "text": " wollte,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 16.8,
+      "speaker_id": null,
+      "start": 16.4,
+      "text": " wurde",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 17.0,
+      "speaker_id": null,
+      "start": 16.8,
+      "text": " US",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 17.5,
+      "speaker_id": null,
+      "start": 17.0,
+      "text": "-Medien",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 18.0,
+      "speaker_id": null,
+      "start": 17.5,
+      "text": " zufolge",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 18.1,
+      "speaker_id": null,
+      "start": 18.0,
+      "text": " von",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 18.4,
+      "speaker_id": null,
+      "start": 18.1,
+      "text": " seinem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 18.8,
+      "speaker_id": null,
+      "start": 18.4,
+      "text": " früheren",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 19.4,
+      "speaker_id": null,
+      "start": 18.8,
+      "text": " Arbeitgeber",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 20.0,
+      "speaker_id": null,
+      "start": 19.4,
+      "text": " suspendiert.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 20.8,
+      "speaker_id": null,
+      "start": 20.2,
+      "text": " Demnach",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 21.2,
+      "speaker_id": null,
+      "start": 20.8,
+      "text": " stufte",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 21.4,
+      "speaker_id": null,
+      "start": 21.2,
+      "text": " Oman",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 21.6,
+      "speaker_id": null,
+      "start": 21.4,
+      "text": " Air",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 22.0,
+      "speaker_id": null,
+      "start": 21.6,
+      "text": " ihn",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 22.2,
+      "speaker_id": null,
+      "start": 22.0,
+      "text": " als",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 23.0,
+      "speaker_id": null,
+      "start": 22.2,
+      "text": " Sicherheitsrisiko",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 23.2,
+      "speaker_id": null,
+      "start": 23.0,
+      "text": " ein.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 24.2,
+      "speaker_id": null,
+      "start": 23.2,
+      "text": " Der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 26.1,
+      "speaker_id": null,
+      "start": 25.6,
+      "text": " FlyDubai",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 26.5,
+      "speaker_id": null,
+      "start": 26.1,
+      "text": "-Copilot,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 27.1,
+      "speaker_id": null,
+      "start": 26.7,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 27.2,
+      "speaker_id": null,
+      "start": 27.1,
+      "text": " den",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 27.7,
+      "speaker_id": null,
+      "start": 27.2,
+      "text": " Piloten",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 27.8,
+      "speaker_id": null,
+      "start": 27.7,
+      "text": " des",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 28.1,
+      "speaker_id": null,
+      "start": 27.8,
+      "text": " Flugs",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 28.2,
+      "speaker_id": null,
+      "start": 28.1,
+      "text": " nach",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 28.4,
+      "speaker_id": null,
+      "start": 28.2,
+      "text": " Tel",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 28.8,
+      "speaker_id": null,
+      "start": 28.4,
+      "text": " Aviv",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 28.9,
+      "speaker_id": null,
+      "start": 28.8,
+      "text": " mit",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 30.0,
+      "speaker_id": null,
+      "start": 28.9,
+      "text": " 182",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 30.4,
+      "speaker_id": null,
+      "start": 30.0,
+      "text": " Personen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 30.7,
+      "speaker_id": null,
+      "start": 30.4,
+      "text": " an",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 30.9,
+      "speaker_id": null,
+      "start": 30.7,
+      "text": " Bord",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 31.3,
+      "speaker_id": null,
+      "start": 30.9,
+      "text": " verletzt",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 31.4,
+      "speaker_id": null,
+      "start": 31.3,
+      "text": " haben",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 31.6,
+      "speaker_id": null,
+      "start": 31.4,
+      "text": " soll,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 32.2,
+      "speaker_id": null,
+      "start": 31.8,
+      "text": " war",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 32.4,
+      "speaker_id": null,
+      "start": 32.2,
+      "text": " US",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 32.9,
+      "speaker_id": null,
+      "start": 32.4,
+      "text": "-Medien",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 33.4,
+      "speaker_id": null,
+      "start": 32.9,
+      "text": " zufolge",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 33.5,
+      "speaker_id": null,
+      "start": 33.4,
+      "text": " wegen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 34.4,
+      "speaker_id": null,
+      "start": 33.5,
+      "text": " Sicherheitsbedenken",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 34.8,
+      "speaker_id": null,
+      "start": 34.4,
+      "text": " zuvor",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 35.3,
+      "speaker_id": null,
+      "start": 34.8,
+      "text": " aus",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 35.6,
+      "speaker_id": null,
+      "start": 35.3,
+      "text": " seinem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 36.0,
+      "speaker_id": null,
+      "start": 35.6,
+      "text": " früheren",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 36.2,
+      "speaker_id": null,
+      "start": 36.0,
+      "text": " Job",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 36.4,
+      "speaker_id": null,
+      "start": 36.2,
+      "text": " bei",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 36.6,
+      "speaker_id": null,
+      "start": 36.4,
+      "text": " einer",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 37.2,
+      "speaker_id": null,
+      "start": 36.6,
+      "text": " Fluggesellschaft",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 37.5,
+      "speaker_id": null,
+      "start": 37.2,
+      "text": " in",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 37.7,
+      "speaker_id": null,
+      "start": 37.5,
+      "text": " Oman",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 38.1,
+      "speaker_id": null,
+      "start": 37.7,
+      "text": " entlassen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 38.4,
+      "speaker_id": null,
+      "start": 38.1,
+      "text": " worden.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 39.0,
+      "speaker_id": null,
+      "start": 38.6,
+      "text": " So",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 39.4,
+      "speaker_id": null,
+      "start": 39.0,
+      "text": " berichtet",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 39.7,
+      "speaker_id": null,
+      "start": 39.4,
+      "text": " ABC",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 40.2,
+      "speaker_id": null,
+      "start": 39.7,
+      "text": " News",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 40.4,
+      "speaker_id": null,
+      "start": 40.2,
+      "text": " unter",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 40.8,
+      "speaker_id": null,
+      "start": 40.4,
+      "text": " Verweis",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 41.0,
+      "speaker_id": null,
+      "start": 40.8,
+      "text": " auf",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 41.5,
+      "speaker_id": null,
+      "start": 41.0,
+      "text": " ranghohe",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 42.2,
+      "speaker_id": null,
+      "start": 41.5,
+      "text": " Geheimdienst",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 42.2,
+      "speaker_id": null,
+      "start": 42.2,
+      "text": "-",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 42.4,
+      "speaker_id": null,
+      "start": 42.2,
+      "text": " und",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 43.5,
+      "speaker_id": null,
+      "start": 42.4,
+      "text": " Strafverfolgungsbeamte,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 44.1,
+      "speaker_id": null,
+      "start": 43.6,
+      "text": " dass",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 44.4,
+      "speaker_id": null,
+      "start": 44.1,
+      "text": " Oman",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 44.6,
+      "speaker_id": null,
+      "start": 44.4,
+      "text": " eher",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 44.9,
+      "speaker_id": null,
+      "start": 44.6,
+      "text": " den",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 45.1,
+      "speaker_id": null,
+      "start": 44.9,
+      "text": " Mann",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 45.6,
+      "speaker_id": null,
+      "start": 45.1,
+      "text": " suspendiert",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 45.9,
+      "speaker_id": null,
+      "start": 45.6,
+      "text": " habe,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 46.6,
+      "speaker_id": null,
+      "start": 46.1,
+      "text": " nachdem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 46.8,
+      "speaker_id": null,
+      "start": 46.6,
+      "text": " er",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 46.9,
+      "speaker_id": null,
+      "start": 46.8,
+      "text": " als",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 47.7,
+      "speaker_id": null,
+      "start": 46.9,
+      "text": " Sicherheitsrisiko",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 48.2,
+      "speaker_id": null,
+      "start": 47.7,
+      "text": " eingestuft",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 48.4,
+      "speaker_id": null,
+      "start": 48.2,
+      "text": " worden",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 48.6,
+      "speaker_id": null,
+      "start": 48.4,
+      "text": " sei.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 50.7,
+      "speaker_id": null,
+      "start": 50.1,
+      "text": " Nach",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 51.2,
+      "speaker_id": null,
+      "start": 50.7,
+      "text": " Informationen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 51.6,
+      "speaker_id": null,
+      "start": 51.2,
+      "text": " des",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 51.8,
+      "speaker_id": null,
+      "start": 51.6,
+      "text": " US",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 52.3,
+      "speaker_id": null,
+      "start": 51.8,
+      "text": "-Senders",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 53.1,
+      "speaker_id": null,
+      "start": 52.3,
+      "text": " war",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 53.3,
+      "speaker_id": null,
+      "start": 53.1,
+      "text": " bei",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 53.4,
+      "speaker_id": null,
+      "start": 53.3,
+      "text": " dem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 54.0,
+      "speaker_id": null,
+      "start": 53.4,
+      "text": " mutmaßlichen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 54.6,
+      "speaker_id": null,
+      "start": 54.0,
+      "text": " Angreifer",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 54.7,
+      "speaker_id": null,
+      "start": 54.6,
+      "text": " aus",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 55.1,
+      "speaker_id": null,
+      "start": 54.7,
+      "text": " Oman",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 56.5,
+      "speaker_id": null,
+      "start": 55.9,
+      "text": " extremistisches",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 56.7,
+      "speaker_id": null,
+      "start": 56.5,
+      "text": " Material",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 57.6,
+      "speaker_id": null,
+      "start": 56.7,
+      "text": " festgestellt",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 57.8,
+      "speaker_id": null,
+      "start": 57.6,
+      "text": " worden,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 58.1,
+      "speaker_id": null,
+      "start": 57.9,
+      "text": " als",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 58.2,
+      "speaker_id": null,
+      "start": 58.1,
+      "text": " er",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 58.9,
+      "speaker_id": null,
+      "start": 58.2,
+      "text": " 2024",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 59.7,
+      "speaker_id": null,
+      "start": 58.9,
+      "text": " als",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 59.9,
+      "speaker_id": null,
+      "start": 59.7,
+      "text": " Co",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 60.2,
+      "speaker_id": null,
+      "start": 59.9,
+      "text": "-Pilot",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 60.8,
+      "speaker_id": null,
+      "start": 60.2,
+      "text": "-Auszubildender",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 61.0,
+      "speaker_id": null,
+      "start": 60.8,
+      "text": " bei",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 61.1,
+      "speaker_id": null,
+      "start": 61.0,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 61.7,
+      "speaker_id": null,
+      "start": 61.1,
+      "text": " Fluggesellschaft",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 62.3,
+      "speaker_id": null,
+      "start": 61.7,
+      "text": " beschäftigt",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 62.4,
+      "speaker_id": null,
+      "start": 62.3,
+      "text": " war.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 63.3,
+      "speaker_id": null,
+      "start": 62.7,
+      "text": " Er",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 63.6,
+      "speaker_id": null,
+      "start": 63.3,
+      "text": " durfte",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 63.9,
+      "speaker_id": null,
+      "start": 63.6,
+      "text": " demnach",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 64.0,
+      "speaker_id": null,
+      "start": 63.9,
+      "text": " aber",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 64.4,
+      "speaker_id": null,
+      "start": 64.0,
+      "text": " weiterhin",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 64.7,
+      "speaker_id": null,
+      "start": 64.4,
+      "text": " in",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 64.8,
+      "speaker_id": null,
+      "start": 64.7,
+      "text": " einer",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 65.6,
+      "speaker_id": null,
+      "start": 64.8,
+      "text": " Verwaltungsfunktion",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 65.8,
+      "speaker_id": null,
+      "start": 65.6,
+      "text": " dort",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 66.1,
+      "speaker_id": null,
+      "start": 65.8,
+      "text": " arbeiten.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 67.1,
+      "speaker_id": null,
+      "start": 66.6,
+      "text": " Dem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 67.4,
+      "speaker_id": null,
+      "start": 67.1,
+      "text": " US",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 67.7,
+      "speaker_id": null,
+      "start": 67.4,
+      "text": "-Sender",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 68.0,
+      "speaker_id": null,
+      "start": 67.7,
+      "text": " CNN",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 68.5,
+      "speaker_id": null,
+      "start": 68.0,
+      "text": " liegen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 68.9,
+      "speaker_id": null,
+      "start": 68.5,
+      "text": " ähnliche",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 69.2,
+      "speaker_id": null,
+      "start": 68.9,
+      "text": " Informationen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 69.8,
+      "speaker_id": null,
+      "start": 69.2,
+      "text": " vor.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 71.9,
+      "speaker_id": null,
+      "start": 71.3,
+      "text": " Das",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 72.1,
+      "speaker_id": null,
+      "start": 71.9,
+      "text": " Wall",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 72.4,
+      "speaker_id": null,
+      "start": 72.1,
+      "text": " Street",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 72.7,
+      "speaker_id": null,
+      "start": 72.4,
+      "text": " Journal",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 73.3,
+      "speaker_id": null,
+      "start": 72.7,
+      "text": " und",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 73.4,
+      "speaker_id": null,
+      "start": 73.3,
+      "text": " die",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 74.3,
+      "speaker_id": null,
+      "start": 73.4,
+      "text": " Nachrichtenagentur",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 74.4,
+      "speaker_id": null,
+      "start": 74.3,
+      "text": " AP",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 74.8,
+      "speaker_id": null,
+      "start": 74.4,
+      "text": " schreiben",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 75.1,
+      "speaker_id": null,
+      "start": 74.8,
+      "text": " unter",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 75.7,
+      "speaker_id": null,
+      "start": 75.1,
+      "text": " Berufung",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 75.8,
+      "speaker_id": null,
+      "start": 75.7,
+      "text": " auf",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 76.0,
+      "speaker_id": null,
+      "start": 75.8,
+      "text": " mit",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 76.1,
+      "speaker_id": null,
+      "start": 76.0,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 76.7,
+      "speaker_id": null,
+      "start": 76.1,
+      "text": " Angelegenheit",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 77.1,
+      "speaker_id": null,
+      "start": 76.7,
+      "text": " vertraute",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 77.4,
+      "speaker_id": null,
+      "start": 77.1,
+      "text": " Personen,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 78.0,
+      "speaker_id": null,
+      "start": 77.6,
+      "text": " dass",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 78.1,
+      "speaker_id": null,
+      "start": 78.0,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 78.3,
+      "speaker_id": null,
+      "start": 78.1,
+      "text": " Mann",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 78.5,
+      "speaker_id": null,
+      "start": 78.3,
+      "text": " von",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 78.8,
+      "speaker_id": null,
+      "start": 78.5,
+      "text": " Oman",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 79.0,
+      "speaker_id": null,
+      "start": 78.8,
+      "text": " schon",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 79.1,
+      "speaker_id": null,
+      "start": 79.0,
+      "text": " zu",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 79.3,
+      "speaker_id": null,
+      "start": 79.1,
+      "text": " einem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 79.7,
+      "speaker_id": null,
+      "start": 79.3,
+      "text": " früheren",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 80.2,
+      "speaker_id": null,
+      "start": 79.7,
+      "text": " Zeitpunkt",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 80.4,
+      "speaker_id": null,
+      "start": 80.2,
+      "text": " mit",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 80.6,
+      "speaker_id": null,
+      "start": 80.4,
+      "text": " einem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 81.2,
+      "speaker_id": null,
+      "start": 80.6,
+      "text": " Flugverbot",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 81.5,
+      "speaker_id": null,
+      "start": 81.2,
+      "text": " belegt",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 81.6,
+      "speaker_id": null,
+      "start": 81.5,
+      "text": " worden",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 81.9,
+      "speaker_id": null,
+      "start": 81.6,
+      "text": " sei.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 82.9,
+      "speaker_id": null,
+      "start": 82.4,
+      "text": " Grund",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 83.2,
+      "speaker_id": null,
+      "start": 82.9,
+      "text": " dafür",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 83.4,
+      "speaker_id": null,
+      "start": 83.2,
+      "text": " sei",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 83.5,
+      "speaker_id": null,
+      "start": 83.4,
+      "text": " die",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 84.0,
+      "speaker_id": null,
+      "start": 83.5,
+      "text": " Befürchtung",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 84.3,
+      "speaker_id": null,
+      "start": 84.0,
+      "text": " gewesen,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 84.6,
+      "speaker_id": null,
+      "start": 84.5,
+      "text": " dass",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 84.7,
+      "speaker_id": null,
+      "start": 84.6,
+      "text": " er",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 85.3,
+      "speaker_id": null,
+      "start": 84.7,
+      "text": " radikale",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 85.8,
+      "speaker_id": null,
+      "start": 85.3,
+      "text": " ideologische",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 86.3,
+      "speaker_id": null,
+      "start": 85.8,
+      "text": " Ansichten",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 86.6,
+      "speaker_id": null,
+      "start": 86.3,
+      "text": " habe.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 87.1,
+      "speaker_id": null,
+      "start": 86.7,
+      "text": " Es",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 87.2,
+      "speaker_id": null,
+      "start": 87.1,
+      "text": " war",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 87.6,
+      "speaker_id": null,
+      "start": 87.2,
+      "text": " demnach",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 88.1,
+      "speaker_id": null,
+      "start": 87.6,
+      "text": " unklar,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 88.9,
+      "speaker_id": null,
+      "start": 88.2,
+      "text": " inwieweit",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 89.1,
+      "speaker_id": null,
+      "start": 88.9,
+      "text": " er",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 89.2,
+      "speaker_id": null,
+      "start": 89.1,
+      "text": " bei",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 89.4,
+      "speaker_id": null,
+      "start": 89.2,
+      "text": " seiner",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 90.0,
+      "speaker_id": null,
+      "start": 89.4,
+      "text": " Einstellung",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 90.1,
+      "speaker_id": null,
+      "start": 90.0,
+      "text": " in",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 90.2,
+      "speaker_id": null,
+      "start": 90.1,
+      "text": " den",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 90.7,
+      "speaker_id": null,
+      "start": 90.2,
+      "text": " Emiraten",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 91.3,
+      "speaker_id": null,
+      "start": 90.7,
+      "text": " überprüft",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 91.5,
+      "speaker_id": null,
+      "start": 91.3,
+      "text": " wurde.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 92.2,
+      "speaker_id": null,
+      "start": 91.8,
+      "text": " Dem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 92.6,
+      "speaker_id": null,
+      "start": 92.2,
+      "text": " Sender",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 92.8,
+      "speaker_id": null,
+      "start": 92.6,
+      "text": " ABC",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 93.2,
+      "speaker_id": null,
+      "start": 92.8,
+      "text": " News",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 93.9,
+      "speaker_id": null,
+      "start": 93.2,
+      "text": " zufolge",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 94.5,
+      "speaker_id": null,
+      "start": 93.9,
+      "text": " versuchen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 95.0,
+      "speaker_id": null,
+      "start": 94.5,
+      "text": " Ermittler",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 95.2,
+      "speaker_id": null,
+      "start": 95.0,
+      "text": " aktuell,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 95.6,
+      "speaker_id": null,
+      "start": 95.5,
+      "text": " dies",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 96.4,
+      "speaker_id": null,
+      "start": 95.6,
+      "text": " herauszufinden.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 98.1,
+      "speaker_id": null,
+      "start": 97.6,
+      "text": " Der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 98.8,
+      "speaker_id": null,
+      "start": 98.1,
+      "text": " festgenommene",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 98.9,
+      "speaker_id": null,
+      "start": 98.8,
+      "text": " Co",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 99.3,
+      "speaker_id": null,
+      "start": 98.9,
+      "text": "-Pilot,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 99.5,
+      "speaker_id": null,
+      "start": 99.3,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 99.8,
+      "speaker_id": null,
+      "start": 99.5,
+      "text": " inzwischen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 100.0,
+      "speaker_id": null,
+      "start": 99.8,
+      "text": " in",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 100.1,
+      "speaker_id": null,
+      "start": 100.0,
+      "text": " die",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 100.6,
+      "speaker_id": null,
+      "start": 100.1,
+      "text": " Emirate",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 100.8,
+      "speaker_id": null,
+      "start": 100.6,
+      "text": " gebracht",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 101.1,
+      "speaker_id": null,
+      "start": 100.8,
+      "text": " worden",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 101.4,
+      "speaker_id": null,
+      "start": 101.1,
+      "text": " ist,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 102.0,
+      "speaker_id": null,
+      "start": 101.5,
+      "text": " soll",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 102.4,
+      "speaker_id": null,
+      "start": 102.0,
+      "text": " demnach",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 102.6,
+      "speaker_id": null,
+      "start": 102.4,
+      "text": " mit",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 102.7,
+      "speaker_id": null,
+      "start": 102.6,
+      "text": " den",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 103.5,
+      "speaker_id": null,
+      "start": 102.7,
+      "text": " Ermittlungsbehörden",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 104.1,
+      "speaker_id": null,
+      "start": 103.5,
+      "text": " kooperieren.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 105.1,
+      "speaker_id": null,
+      "start": 104.5,
+      "text": " Er",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 105.2,
+      "speaker_id": null,
+      "start": 105.1,
+      "text": " habe",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 105.9,
+      "speaker_id": null,
+      "start": 105.2,
+      "text": " angedeutet,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 106.0,
+      "speaker_id": null,
+      "start": 105.9,
+      "text": " dass",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 106.2,
+      "speaker_id": null,
+      "start": 106.0,
+      "text": " er",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 106.3,
+      "speaker_id": null,
+      "start": 106.2,
+      "text": " die",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 106.7,
+      "speaker_id": null,
+      "start": 106.3,
+      "text": " Absicht",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 106.9,
+      "speaker_id": null,
+      "start": 106.7,
+      "text": " gehabt",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 107.2,
+      "speaker_id": null,
+      "start": 106.9,
+      "text": " habe,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 107.7,
+      "speaker_id": null,
+      "start": 107.3,
+      "text": " das",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 108.2,
+      "speaker_id": null,
+      "start": 107.7,
+      "text": " FlyDubai",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 108.6,
+      "speaker_id": null,
+      "start": 108.2,
+      "text": "-Flugzeug",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 108.7,
+      "speaker_id": null,
+      "start": 108.6,
+      "text": " in",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 109.0,
+      "speaker_id": null,
+      "start": 108.7,
+      "text": " Israel",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 109.3,
+      "speaker_id": null,
+      "start": 109.0,
+      "text": " zum",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 109.6,
+      "speaker_id": null,
+      "start": 109.3,
+      "text": " Absturz",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 109.8,
+      "speaker_id": null,
+      "start": 109.6,
+      "text": " zu",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 110.0,
+      "speaker_id": null,
+      "start": 109.8,
+      "text": " bringen,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 110.8,
+      "speaker_id": null,
+      "start": 110.1,
+      "text": " zitiert",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 110.9,
+      "speaker_id": null,
+      "start": 110.8,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 111.2,
+      "speaker_id": null,
+      "start": 110.9,
+      "text": " Sender",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 111.6,
+      "speaker_id": null,
+      "start": 111.2,
+      "text": " Quellen,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 112.0,
+      "speaker_id": null,
+      "start": 111.6,
+      "text": " die",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 112.1,
+      "speaker_id": null,
+      "start": 112.0,
+      "text": " über",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 112.3,
+      "speaker_id": null,
+      "start": 112.1,
+      "text": " die",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 112.7,
+      "speaker_id": null,
+      "start": 112.3,
+      "text": " Ermittlungen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 113.3,
+      "speaker_id": null,
+      "start": 112.7,
+      "text": " informiert",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 113.5,
+      "speaker_id": null,
+      "start": 113.3,
+      "text": " sind.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 115.4,
+      "speaker_id": null,
+      "start": 114.8,
+      "text": " Der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 115.7,
+      "speaker_id": null,
+      "start": 115.4,
+      "text": " Flug",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 115.8,
+      "speaker_id": null,
+      "start": 115.7,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 116.3,
+      "speaker_id": null,
+      "start": 115.8,
+      "text": " Emiratischen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 116.6,
+      "speaker_id": null,
+      "start": 116.3,
+      "text": " Gesellschaft",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 117.1,
+      "speaker_id": null,
+      "start": 116.6,
+      "text": " war",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 117.2,
+      "speaker_id": null,
+      "start": 117.1,
+      "text": " am",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 117.5,
+      "speaker_id": null,
+      "start": 117.2,
+      "text": " Mittwoch",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 117.6,
+      "speaker_id": null,
+      "start": 117.5,
+      "text": " von",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 117.9,
+      "speaker_id": null,
+      "start": 117.6,
+      "text": " Dubai",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 118.1,
+      "speaker_id": null,
+      "start": 117.9,
+      "text": " nach",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 118.3,
+      "speaker_id": null,
+      "start": 118.1,
+      "text": " Tel",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 118.6,
+      "speaker_id": null,
+      "start": 118.3,
+      "text": " Aviv",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 118.9,
+      "speaker_id": null,
+      "start": 118.6,
+      "text": " unterwegs,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 119.7,
+      "speaker_id": null,
+      "start": 119.2,
+      "text": " als",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 119.8,
+      "speaker_id": null,
+      "start": 119.7,
+      "text": " es",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 120.0,
+      "speaker_id": null,
+      "start": 119.8,
+      "text": " zu",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 120.2,
+      "speaker_id": null,
+      "start": 120.0,
+      "text": " einem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 120.9,
+      "speaker_id": null,
+      "start": 120.2,
+      "text": " mutmaßlichen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 121.2,
+      "speaker_id": null,
+      "start": 120.9,
+      "text": " Angriff",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 121.5,
+      "speaker_id": null,
+      "start": 121.2,
+      "text": " des",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 121.6,
+      "speaker_id": null,
+      "start": 121.5,
+      "text": " Co",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 122.0,
+      "speaker_id": null,
+      "start": 121.6,
+      "text": "-Piloten",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 122.2,
+      "speaker_id": null,
+      "start": 122.0,
+      "text": " auf",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 122.4,
+      "speaker_id": null,
+      "start": 122.2,
+      "text": " seinen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 122.7,
+      "speaker_id": null,
+      "start": 122.4,
+      "text": " Kollegen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 123.0,
+      "speaker_id": null,
+      "start": 122.7,
+      "text": " kam.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 124.1,
+      "speaker_id": null,
+      "start": 123.5,
+      "text": " Dieser",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 124.5,
+      "speaker_id": null,
+      "start": 124.1,
+      "text": " schaffte",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 124.6,
+      "speaker_id": null,
+      "start": 124.5,
+      "text": " es",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 124.7,
+      "speaker_id": null,
+      "start": 124.6,
+      "text": " nach",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 125.0,
+      "speaker_id": null,
+      "start": 124.7,
+      "text": " eigenen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 125.6,
+      "speaker_id": null,
+      "start": 125.0,
+      "text": " Angaben",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 125.9,
+      "speaker_id": null,
+      "start": 125.6,
+      "text": " trotz",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 126.2,
+      "speaker_id": null,
+      "start": 125.9,
+      "text": " schwerer",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 126.7,
+      "speaker_id": null,
+      "start": 126.2,
+      "text": " Verletzungen,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 127.2,
+      "speaker_id": null,
+      "start": 126.8,
+      "text": " die",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 127.6,
+      "speaker_id": null,
+      "start": 127.2,
+      "text": " Cockpit",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 127.7,
+      "speaker_id": null,
+      "start": 127.6,
+      "text": "-Tür",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 127.8,
+      "speaker_id": null,
+      "start": 127.7,
+      "text": " zu",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 128.1,
+      "speaker_id": null,
+      "start": 127.8,
+      "text": " öffnen.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 129.1,
+      "speaker_id": null,
+      "start": 128.5,
+      "text": " Mehrere",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 129.6,
+      "speaker_id": null,
+      "start": 129.1,
+      "text": " Passagiere",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 129.9,
+      "speaker_id": null,
+      "start": 129.6,
+      "text": " drangen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 130.0,
+      "speaker_id": null,
+      "start": 129.9,
+      "text": " es",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 130.1,
+      "speaker_id": null,
+      "start": 130.0,
+      "text": " ins",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 130.6,
+      "speaker_id": null,
+      "start": 130.1,
+      "text": " Cockpit",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 130.8,
+      "speaker_id": null,
+      "start": 130.6,
+      "text": " ein",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 131.3,
+      "speaker_id": null,
+      "start": 130.8,
+      "text": " und",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 131.6,
+      "speaker_id": null,
+      "start": 131.3,
+      "text": " konnten",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 131.8,
+      "speaker_id": null,
+      "start": 131.6,
+      "text": " den",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 132.2,
+      "speaker_id": null,
+      "start": 131.8,
+      "text": " Angreifer",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 132.8,
+      "speaker_id": null,
+      "start": 132.2,
+      "text": " überwältigen.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 134.7,
+      "speaker_id": null,
+      "start": 134.1,
+      "text": " Die",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 135.2,
+      "speaker_id": null,
+      "start": 134.7,
+      "text": " emiratischen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 135.6,
+      "speaker_id": null,
+      "start": 135.2,
+      "text": " Behörden",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 135.8,
+      "speaker_id": null,
+      "start": 135.6,
+      "text": " haben",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 136.3,
+      "speaker_id": null,
+      "start": 135.8,
+      "text": " Ermittlungen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 137.0,
+      "speaker_id": null,
+      "start": 136.3,
+      "text": " eingeleitet.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 137.9,
+      "speaker_id": null,
+      "start": 137.3,
+      "text": " Motiv",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 138.1,
+      "speaker_id": null,
+      "start": 137.9,
+      "text": " und",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 138.6,
+      "speaker_id": null,
+      "start": 138.1,
+      "text": " Absichten",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 138.7,
+      "speaker_id": null,
+      "start": 138.6,
+      "text": " des",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 139.4,
+      "speaker_id": null,
+      "start": 138.7,
+      "text": " mutmaßlichen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 140.0,
+      "speaker_id": null,
+      "start": 139.4,
+      "text": " Angreifers",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 140.4,
+      "speaker_id": null,
+      "start": 140.0,
+      "text": " sind",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 140.6,
+      "speaker_id": null,
+      "start": 140.4,
+      "text": " noch",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 140.8,
+      "speaker_id": null,
+      "start": 140.6,
+      "text": " immer",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 141.4,
+      "speaker_id": null,
+      "start": 140.8,
+      "text": " ungeklärt.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 142.3,
+      "speaker_id": null,
+      "start": 141.7,
+      "text": " Die",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 142.9,
+      "speaker_id": null,
+      "start": 142.3,
+      "text": " israelische",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 143.1,
+      "speaker_id": null,
+      "start": 142.9,
+      "text": " Regierung",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 143.4,
+      "speaker_id": null,
+      "start": 143.1,
+      "text": " geht",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 143.8,
+      "speaker_id": null,
+      "start": 143.4,
+      "text": " bereits",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 144.0,
+      "speaker_id": null,
+      "start": 143.8,
+      "text": " von",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 144.2,
+      "speaker_id": null,
+      "start": 144.0,
+      "text": " einem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 144.9,
+      "speaker_id": null,
+      "start": 144.2,
+      "text": " jihadistischen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 145.5,
+      "speaker_id": null,
+      "start": 144.9,
+      "text": " Terroranschlag",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 145.8,
+      "speaker_id": null,
+      "start": 145.5,
+      "text": " aus.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 146.5,
+      "speaker_id": null,
+      "start": 145.9,
+      "text": " Und",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 146.6,
+      "speaker_id": null,
+      "start": 146.5,
+      "text": " auch",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 146.8,
+      "speaker_id": null,
+      "start": 146.6,
+      "text": " ein",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 147.4,
+      "speaker_id": null,
+      "start": 146.8,
+      "text": " hochrangiger",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 148.3,
+      "speaker_id": null,
+      "start": 147.4,
+      "text": " Regierungsvertreter",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 148.4,
+      "speaker_id": null,
+      "start": 148.3,
+      "text": " aus",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 148.6,
+      "speaker_id": null,
+      "start": 148.4,
+      "text": " den",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 149.0,
+      "speaker_id": null,
+      "start": 148.6,
+      "text": " Vereinigten",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 149.5,
+      "speaker_id": null,
+      "start": 149.0,
+      "text": " Arabischen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 150.1,
+      "speaker_id": null,
+      "start": 149.5,
+      "text": " Emiraten",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 150.7,
+      "speaker_id": null,
+      "start": 150.1,
+      "text": " sprach",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 150.8,
+      "speaker_id": null,
+      "start": 150.7,
+      "text": " im",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 151.4,
+      "speaker_id": null,
+      "start": 150.8,
+      "text": " Zusammenhang",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 151.6,
+      "speaker_id": null,
+      "start": 151.4,
+      "text": " mit",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 151.7,
+      "speaker_id": null,
+      "start": 151.6,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 152.2,
+      "speaker_id": null,
+      "start": 151.7,
+      "text": " Gewalttat",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 152.5,
+      "speaker_id": null,
+      "start": 152.2,
+      "text": " jüngst",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 152.6,
+      "speaker_id": null,
+      "start": 152.5,
+      "text": " von",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 153.1,
+      "speaker_id": null,
+      "start": 152.6,
+      "text": " Terrorismus.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 155.2,
+      "speaker_id": null,
+      "start": 154.6,
+      "text": " Der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 155.5,
+      "speaker_id": null,
+      "start": 155.2,
+      "text": " US",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 155.8,
+      "speaker_id": null,
+      "start": 155.5,
+      "text": "-Sender",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 156.1,
+      "speaker_id": null,
+      "start": 155.8,
+      "text": " CNN",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 156.8,
+      "speaker_id": null,
+      "start": 156.1,
+      "text": " berichtet",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 157.0,
+      "speaker_id": null,
+      "start": 156.8,
+      "text": " über",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 157.1,
+      "speaker_id": null,
+      "start": 157.0,
+      "text": " ein",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 157.4,
+      "speaker_id": null,
+      "start": 157.1,
+      "text": " LinkedIn",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 157.9,
+      "speaker_id": null,
+      "start": 157.4,
+      "text": "-Profil,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 158.5,
+      "speaker_id": null,
+      "start": 158.1,
+      "text": " das",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 158.6,
+      "speaker_id": null,
+      "start": 158.5,
+      "text": " unter",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 158.8,
+      "speaker_id": null,
+      "start": 158.6,
+      "text": " dem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 159.1,
+      "speaker_id": null,
+      "start": 158.8,
+      "text": " Namen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 159.3,
+      "speaker_id": null,
+      "start": 159.1,
+      "text": " des",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 159.9,
+      "speaker_id": null,
+      "start": 159.3,
+      "text": " mutmaßlichen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 160.5,
+      "speaker_id": null,
+      "start": 159.9,
+      "text": " Angreifers",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 161.0,
+      "speaker_id": null,
+      "start": 160.5,
+      "text": " existiert",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 161.2,
+      "speaker_id": null,
+      "start": 161.0,
+      "text": " haben",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 161.5,
+      "speaker_id": null,
+      "start": 161.2,
+      "text": " soll",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 162.1,
+      "speaker_id": null,
+      "start": 161.5,
+      "text": " und",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 162.4,
+      "speaker_id": null,
+      "start": 162.1,
+      "text": " inzwischen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 162.9,
+      "speaker_id": null,
+      "start": 162.4,
+      "text": " gelöscht",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 163.0,
+      "speaker_id": null,
+      "start": 162.9,
+      "text": " sei.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 163.7,
+      "speaker_id": null,
+      "start": 163.2,
+      "text": " Auf",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 163.9,
+      "speaker_id": null,
+      "start": 163.7,
+      "text": " diesem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 164.2,
+      "speaker_id": null,
+      "start": 163.9,
+      "text": " sollen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 164.5,
+      "speaker_id": null,
+      "start": 164.2,
+      "text": " Stunden",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 164.8,
+      "speaker_id": null,
+      "start": 164.5,
+      "text": " nach",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 165.0,
+      "speaker_id": null,
+      "start": 164.8,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 165.5,
+      "speaker_id": null,
+      "start": 165.0,
+      "text": " Gewalttat",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 165.7,
+      "speaker_id": null,
+      "start": 165.5,
+      "text": " zwei",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 166.3,
+      "speaker_id": null,
+      "start": 165.7,
+      "text": " Posts",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 166.6,
+      "speaker_id": null,
+      "start": 166.3,
+      "text": " abgesetzt",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 166.9,
+      "speaker_id": null,
+      "start": 166.6,
+      "text": " worden",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 167.2,
+      "speaker_id": null,
+      "start": 166.9,
+      "text": " sein.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 167.9,
+      "speaker_id": null,
+      "start": 167.4,
+      "text": " Wer",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 168.1,
+      "speaker_id": null,
+      "start": 167.9,
+      "text": " diese",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 168.7,
+      "speaker_id": null,
+      "start": 168.1,
+      "text": " veröffentlicht",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 168.9,
+      "speaker_id": null,
+      "start": 168.7,
+      "text": " hat",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 169.5,
+      "speaker_id": null,
+      "start": 168.9,
+      "text": " und",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 169.7,
+      "speaker_id": null,
+      "start": 169.5,
+      "text": " ob",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 169.8,
+      "speaker_id": null,
+      "start": 169.7,
+      "text": " sie",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 169.9,
+      "speaker_id": null,
+      "start": 169.8,
+      "text": " im",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 170.4,
+      "speaker_id": null,
+      "start": 169.9,
+      "text": " Voraus",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 170.7,
+      "speaker_id": null,
+      "start": 170.4,
+      "text": " geplant",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 170.9,
+      "speaker_id": null,
+      "start": 170.7,
+      "text": " gewesen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 171.4,
+      "speaker_id": null,
+      "start": 170.9,
+      "text": " waren,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 171.9,
+      "speaker_id": null,
+      "start": 171.5,
+      "text": " ist",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 172.2,
+      "speaker_id": null,
+      "start": 171.9,
+      "text": " demnach",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 172.7,
+      "speaker_id": null,
+      "start": 172.2,
+      "text": " unklar.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 173.5,
+      "speaker_id": null,
+      "start": 173.0,
+      "text": " In",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 173.7,
+      "speaker_id": null,
+      "start": 173.5,
+      "text": " einem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 173.8,
+      "speaker_id": null,
+      "start": 173.7,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 174.4,
+      "speaker_id": null,
+      "start": 173.8,
+      "text": " Posts",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 174.6,
+      "speaker_id": null,
+      "start": 174.4,
+      "text": " war",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 174.8,
+      "speaker_id": null,
+      "start": 174.6,
+      "text": " laut",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 175.1,
+      "speaker_id": null,
+      "start": 174.8,
+      "text": " CNN",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 175.5,
+      "speaker_id": null,
+      "start": 175.1,
+      "text": " ein",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 175.8,
+      "speaker_id": null,
+      "start": 175.5,
+      "text": " Video",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 176.3,
+      "speaker_id": null,
+      "start": 175.8,
+      "text": " enthalten,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 176.8,
+      "speaker_id": null,
+      "start": 176.4,
+      "text": " das",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 177.0,
+      "speaker_id": null,
+      "start": 176.8,
+      "text": " unter",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 177.4,
+      "speaker_id": null,
+      "start": 177.0,
+      "text": " anderem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 177.5,
+      "speaker_id": null,
+      "start": 177.4,
+      "text": " mit",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 177.7,
+      "speaker_id": null,
+      "start": 177.5,
+      "text": " einem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 178.1,
+      "speaker_id": null,
+      "start": 177.7,
+      "text": " Foto",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 178.2,
+      "speaker_id": null,
+      "start": 178.1,
+      "text": " des",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 178.7,
+      "speaker_id": null,
+      "start": 178.2,
+      "text": " früheren",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 178.9,
+      "speaker_id": null,
+      "start": 178.7,
+      "text": " Al",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 179.1,
+      "speaker_id": null,
+      "start": 178.9,
+      "text": "-Qaida",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 179.5,
+      "speaker_id": null,
+      "start": 179.1,
+      "text": "-Chefs",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 180.1,
+      "speaker_id": null,
+      "start": 179.5,
+      "text": " Ayman",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 180.4,
+      "speaker_id": null,
+      "start": 180.1,
+      "text": " al",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 180.8,
+      "speaker_id": null,
+      "start": 180.4,
+      "text": "-Zawahiri",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 181.3,
+      "speaker_id": null,
+      "start": 180.8,
+      "text": " endet.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 183.4,
+      "speaker_id": null,
+      "start": 182.9,
+      "text": " Ich",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 183.6,
+      "speaker_id": null,
+      "start": 183.4,
+      "text": " schaute",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 183.8,
+      "speaker_id": null,
+      "start": 183.6,
+      "text": " meinen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 184.1,
+      "speaker_id": null,
+      "start": 183.8,
+      "text": " Vater",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 184.4,
+      "speaker_id": null,
+      "start": 184.1,
+      "text": " an.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 185.1,
+      "speaker_id": null,
+      "start": 184.6,
+      "text": " Er",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 185.3,
+      "speaker_id": null,
+      "start": 185.1,
+      "text": " hatte",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 185.5,
+      "speaker_id": null,
+      "start": 185.3,
+      "text": " Angst.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 186.3,
+      "speaker_id": null,
+      "start": 185.9,
+      "text": " Sein",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 186.6,
+      "speaker_id": null,
+      "start": 186.3,
+      "text": " Gesicht",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 186.8,
+      "speaker_id": null,
+      "start": 186.6,
+      "text": " sah",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 187.0,
+      "speaker_id": null,
+      "start": 186.8,
+      "text": " aus",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 187.2,
+      "speaker_id": null,
+      "start": 187.0,
+      "text": " wie",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 187.3,
+      "speaker_id": null,
+      "start": 187.2,
+      "text": " das",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 187.5,
+      "speaker_id": null,
+      "start": 187.3,
+      "text": " eines",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 187.9,
+      "speaker_id": null,
+      "start": 187.5,
+      "text": " Menschen,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 188.1,
+      "speaker_id": null,
+      "start": 188.0,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 188.3,
+      "speaker_id": null,
+      "start": 188.1,
+      "text": " weiß,",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 188.5,
+      "speaker_id": null,
+      "start": 188.4,
+      "text": " dass",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 188.6,
+      "speaker_id": null,
+      "start": 188.5,
+      "text": " er",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 189.0,
+      "speaker_id": null,
+      "start": 188.6,
+      "text": " sterben",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 189.2,
+      "speaker_id": null,
+      "start": 189.0,
+      "text": " wird.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 190.3,
+      "speaker_id": null,
+      "start": 189.9,
+      "text": " Eyal",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 190.5,
+      "speaker_id": null,
+      "start": 190.3,
+      "text": " Daz",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 190.7,
+      "speaker_id": null,
+      "start": 190.5,
+      "text": " war",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 190.9,
+      "speaker_id": null,
+      "start": 190.7,
+      "text": " einer",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 191.1,
+      "speaker_id": null,
+      "start": 190.9,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 191.3,
+      "speaker_id": null,
+      "start": 191.1,
+      "text": " mehr",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 191.4,
+      "speaker_id": null,
+      "start": 191.3,
+      "text": " als",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 191.9,
+      "speaker_id": null,
+      "start": 191.4,
+      "text": " 170",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 192.4,
+      "speaker_id": null,
+      "start": 191.9,
+      "text": " Menschen",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 192.7,
+      "speaker_id": null,
+      "start": 192.4,
+      "text": " an",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 193.0,
+      "speaker_id": null,
+      "start": 192.7,
+      "text": " Bord",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 193.1,
+      "speaker_id": null,
+      "start": 193.0,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 193.5,
+      "speaker_id": null,
+      "start": 193.1,
+      "text": " Flüdubay",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 193.9,
+      "speaker_id": null,
+      "start": 193.5,
+      "text": "-Maschine.",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 194.6,
+      "speaker_id": null,
+      "start": 194.1,
+      "text": " Hier",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 194.9,
+      "speaker_id": null,
+      "start": 194.6,
+      "text": " erzählt",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 195.1,
+      "speaker_id": null,
+      "start": 194.9,
+      "text": " er",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 195.3,
+      "speaker_id": null,
+      "start": 195.1,
+      "text": " von",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 195.4,
+      "speaker_id": null,
+      "start": 195.3,
+      "text": " dem",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 195.6,
+      "speaker_id": null,
+      "start": 195.4,
+      "text": " Drama",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 195.9,
+      "speaker_id": null,
+      "start": 195.6,
+      "text": " in",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 196.0,
+      "speaker_id": null,
+      "start": 195.9,
+      "text": " der",
+      "type": "transcription_segment"
+    },
+    {
+      "end": 196.2,
+      "speaker_id": null,
+      "start": 196.0,
+      "text": " Luft.",
+      "type": "transcription_segment"
+    }
+  ],
+  "text": "Fly Dubai Co-Pilot galt als Sicherheitsrisiko. Automatisch vertonte Artikel. Der Mann, der den Fly Dubai Flug nach Tel Aviv wohl zum Absturz bringen wollte, wurde US-Medien zufolge von seinem früheren Arbeitgeber suspendiert. Demnach stufte Oman Air ihn als Sicherheitsrisiko ein. Der FlyDubai-Copilot, der den Piloten des Flugs nach Tel Aviv mit 182 Personen an Bord verletzt haben soll, war US-Medien zufolge wegen Sicherheitsbedenken zuvor aus seinem früheren Job bei einer Fluggesellschaft in Oman entlassen worden. So berichtet ABC News unter Verweis auf ranghohe Geheimdienst- und Strafverfolgungsbeamte, dass Oman eher den Mann suspendiert habe, nachdem er als Sicherheitsrisiko eingestuft worden sei. Nach Informationen des US-Senders war bei dem mutmaßlichen Angreifer aus Oman extremistisches Material festgestellt worden, als er 2024 als Co-Pilot-Auszubildender bei der Fluggesellschaft beschäftigt war. Er durfte demnach aber weiterhin in einer Verwaltungsfunktion dort arbeiten. Dem US-Sender CNN liegen ähnliche Informationen vor. Das Wall Street Journal und die Nachrichtenagentur AP schreiben unter Berufung auf mit der Angelegenheit vertraute Personen, dass der Mann von Oman schon zu einem früheren Zeitpunkt mit einem Flugverbot belegt worden sei. Grund dafür sei die Befürchtung gewesen, dass er radikale ideologische Ansichten habe. Es war demnach unklar, inwieweit er bei seiner Einstellung in den Emiraten überprüft wurde. Dem Sender ABC News zufolge versuchen Ermittler aktuell, dies herauszufinden. Der festgenommene Co-Pilot, der inzwischen in die Emirate gebracht worden ist, soll demnach mit den Ermittlungsbehörden kooperieren. Er habe angedeutet, dass er die Absicht gehabt habe, das FlyDubai-Flugzeug in Israel zum Absturz zu bringen, zitiert der Sender Quellen, die über die Ermittlungen informiert sind. Der Flug der Emiratischen Gesellschaft war am Mittwoch von Dubai nach Tel Aviv unterwegs, als es zu einem mutmaßlichen Angriff des Co-Piloten auf seinen Kollegen kam. Dieser schaffte es nach eigenen Angaben trotz schwerer Verletzungen, die Cockpit-Tür zu öffnen. Mehrere Passagiere drangen es ins Cockpit ein und konnten den Angreifer überwältigen. Die emiratischen Behörden haben Ermittlungen eingeleitet. Motiv und Absichten des mutmaßlichen Angreifers sind noch immer ungeklärt. Die israelische Regierung geht bereits von einem jihadistischen Terroranschlag aus. Und auch ein hochrangiger Regierungsvertreter aus den Vereinigten Arabischen Emiraten sprach im Zusammenhang mit der Gewalttat jüngst von Terrorismus. Der US-Sender CNN berichtet über ein LinkedIn-Profil, das unter dem Namen des mutmaßlichen Angreifers existiert haben soll und inzwischen gelöscht sei. Auf diesem sollen Stunden nach der Gewalttat zwei Posts abgesetzt worden sein. Wer diese veröffentlicht hat und ob sie im Voraus geplant gewesen waren, ist demnach unklar. In einem der Posts war laut CNN ein Video enthalten, das unter anderem mit einem Foto des früheren Al-Qaida-Chefs Ayman al-Zawahiri endet. Ich schaute meinen Vater an. Er hatte Angst. Sein Gesicht sah aus wie das eines Menschen, der weiß, dass er sterben wird. Eyal Daz war einer der mehr als 170 Menschen an Bord der Flüdubay-Maschine. Hier erzählt er von dem Drama in der Luft.",
+  "type": "transcription.done",
+  "usage": {
+    "completion_tokens": 864,
+    "prompt_audio_seconds": 197,
+    "prompt_tokens": 4,
+    "request_count": 1,
+    "total_tokens": 868
+  }
+}

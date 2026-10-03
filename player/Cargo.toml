@@ -1,0 +1,33 @@
+[package]
+name = "transcript-player"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+chrono = { version = "0.4.45", default-features = false, features = ["clock"] }
+iced = { version = "0.14", features = ["tokio"] }
+libc = "0.2"
+libloading = "0.9.0"
+# `tracing` is a default feature of ort, and it makes ort create ONNX Runtime's
+# environment with a *custom* logger — ONNX Runtime then has no process wide
+# default logger, so any log call during CUDA execution provider init throws
+# "Attempt to use DefaultLogger but none has been registered" and session
+# creation fails. Plain `CreateEnv` (no tracing) registers the default logger.
+ort = { version = "=2.0.0-rc.13", default-features = false, features = [
+    "load-dynamic",
+    "cuda",
+    "api-17",
+] }
+rodio = "0.22"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sherpa-onnx = { version = "1.13.8", default-features = false, features = ["shared"] }
+symphonia = { version = "0.5.5", features = ["mp3", "aac", "flac", "vorbis", "wav", "ogg", "isomp4", "mkv", "pcm", "aiff", "caf"] }
+tokenizers = "0.23.2"
+ureq = { version = "3.4.2", features = ["json"] }
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3

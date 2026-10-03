@@ -1,0 +1,173 @@
+{
+ "file": "out16k.wav",
+ "model": "large-v3",
+ "language": "de",
+ "duration": 196.6236875,
+ "segments": [
+  {
+   "start": 3.44,
+   "end": 23.35,
+   "text": "Fly Dubai Co-Pilot galt als Sicherheitsrisiko. Automatisch vertonte Artikel. Der Mann, der den Fly Dubai Flug nach Tel Aviv wohl zum Absturz bringen wollte, wurde US-Medien zufolge von seinem früheren Arbeitgeber suspendiert. Demnach stufte Oman Air ihn als Sicherheitsrisiko ein."
+  },
+  {
+   "start": 25.56,
+   "end": 31.78,
+   "text": "Der FlyDubai-Copilot, der den Piloten des Flugs nach Tel Aviv mit 182 Personen an Bord verletzt haben soll,"
+  },
+  {
+   "start": 31.78,
+   "end": 38.54,
+   "text": "war US-Medien zufolge wegen Sicherheitsbedenken zuvor aus seinem früheren Job bei einer Fluggesellschaft in Oman entlassen worden."
+  },
+  {
+   "start": 39.0,
+   "end": 43.56,
+   "text": "So berichtet ABC News unter Verweis auf ranghohe Geheimdienst- und Strafverfolgungsbeamte,"
+  },
+  {
+   "start": 43.98,
+   "end": 48.76,
+   "text": "dass Oman eher den Mann suspendiert habe, nachdem er als Sicherheitsrisiko eingestuft worden sei."
+  },
+  {
+   "start": 50.56,
+   "end": 55.18,
+   "text": "Nach Informationen des US-Senders war bei dem mutmaßlichen Angreifer aus Oman"
+  },
+  {
+   "start": 55.18,
+   "end": 61.22,
+   "text": "extremistisches Material festgestellt worden, als er 2024 als Co-Pilot-Auszubildender bei der"
+  },
+  {
+   "start": 61.22,
+   "end": 65.88,
+   "text": "Fluggesellschaft beschäftigt war. Er durfte demnach aber weiterhin in einer Verwaltungsfunktion dort"
+  },
+  {
+   "start": 65.88,
+   "end": 72.84,
+   "text": "arbeiten. Dem US-Sender CNN liegen ähnliche Informationen vor. Das Wall Street Journal"
+  },
+  {
+   "start": 72.84,
+   "end": 77.18,
+   "text": "und die Nachrichtenagentur AP schreiben unter Berufung auf mit der Angelegenheit vertraute"
+  },
+  {
+   "start": 77.18,
+   "end": 81.52,
+   "text": "Personen, dass der Mann von Oman schon zu einem früheren Zeitpunkt mit einem Flugverbot belegt"
+  },
+  {
+   "start": 81.52,
+   "end": 86.36,
+   "text": "worden sei. Grund dafür sei die Befürchtung gewesen, dass er radikale ideologische Ansichten"
+  },
+  {
+   "start": 86.36,
+   "end": 91.34,
+   "text": "habe. Es war demnach unklar, inwieweit er bei seiner Einstellung in den Emiraten überprüft"
+  },
+  {
+   "start": 91.34,
+   "end": 98.2,
+   "text": "wurde. Dem Sender ABC News zufolge versuchen Ermittler aktuell, dies herauszufinden. Der"
+  },
+  {
+   "start": 98.2,
+   "end": 102.64,
+   "text": "festgenommene Co-Pilot, der inzwischen in die Emirate gebracht worden ist, soll demnach mit"
+  },
+  {
+   "start": 102.64,
+   "end": 107.32,
+   "text": "den Ermittlungsbehörden kooperieren. Er habe angedeutet, dass er die Absicht gehabt habe,"
+  },
+  {
+   "start": 107.68,
+   "end": 111.62,
+   "text": "das FlyDubai-Flugzeug in Israel zum Absturz zu bringen, zitiert der Sender Quellen,"
+  },
+  {
+   "start": 111.62,
+   "end": 117.28,
+   "text": "die über die Ermittlungen informiert sind. Der Flug der Emiratischen Gesellschaft war am"
+  },
+  {
+   "start": 117.28,
+   "end": 121.54,
+   "text": "Mittwoch von Dubai nach Tel Aviv unterwegs, als es zu einem mutmaßlichen Angriff des"
+  },
+  {
+   "start": 121.54,
+   "end": 126.3,
+   "text": "Co-Piloten auf seinen Kollegen kam. Dieser schaffte es nach eigenen Angaben trotz schwerer"
+  },
+  {
+   "start": 126.3,
+   "end": 131.7,
+   "text": "Verletzungen, die Cockpittür zu öffnen. Mehrere Passagiere drangen es ins Cockpit ein und konnten"
+  },
+  {
+   "start": 131.7,
+   "end": 138.01,
+   "text": "den Angreifer überwältigen. Die emiratischen Behörden haben Ermittlungen eingeleitet. Motiv"
+  },
+  {
+   "start": 138.01,
+   "end": 142.97,
+   "text": "und Absichten des mutmaßlichen Angreifers sind noch immer ungeklärt. Die israelische"
+  },
+  {
+   "start": 142.97,
+   "end": 147.47,
+   "text": "Regierung geht bereits von einem jihadistischen Terroranschlag aus. Und auch ein hochrangiger"
+  },
+  {
+   "start": 147.47,
+   "end": 152.25,
+   "text": "Regierungsvertreter aus den Vereinigten Arabischen Emiraten sprach im Zusammenhang mit der Gewalttat"
+  },
+  {
+   "start": 152.25,
+   "end": 158.72,
+   "text": "jüngst von Terrorismus. Der US-Sender CNN berichtet über ein LinkedIn-Profil, das unter"
+  },
+  {
+   "start": 158.72,
+   "end": 164.02,
+   "text": "dem Namen des mutmaßlichen Angreifers existiert haben soll und inzwischen gelöscht sei. Auf diesem"
+  },
+  {
+   "start": 164.02,
+   "end": 168.82,
+   "text": "sollen Stunden nach der Gewalttat zwei Posts abgesetzt worden sein. Wer diese veröffentlicht"
+  },
+  {
+   "start": 168.82,
+   "end": 174.86,
+   "text": "hat und ob sie im Voraus geplant gewesen waren, ist demnach unklar. In einem der Posts war laut"
+  },
+  {
+   "start": 174.86,
+   "end": 180.24,
+   "text": "CNN ein Video enthalten, das unter anderem mit einem Foto des früheren Al-Qaida-Chefs Ayman"
+  },
+  {
+   "start": 180.24,
+   "end": 187.66,
+   "text": "al-Sawahiri endet. Ich schaute meinen Vater an. Er hatte Angst. Sein Gesicht sah aus wie das eines"
+  },
+  {
+   "start": 187.66,
+   "end": 193.02,
+   "text": "Menschen, der weiß, dass er sterben wird. Eyal Daz war einer der mehr als 170 Menschen an Bord"
+  },
+  {
+   "start": 193.02,
+   "end": 196.32,
+   "text": "der Flüdubay-Maschine. Hier erzählt er von dem Drama in der Luft."
+  }
+ ]
+}
