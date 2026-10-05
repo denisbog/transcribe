@@ -10,7 +10,10 @@ use std::sync::mpsc::Sender;
 
 use serde_json::json;
 
-use crate::{library, onnx_llm};
+use crate::{align, article, external, library, onnx_llm};
+
+/// How many vocabulary pairs the language model is asked for.
+pub const VOCABULARY_LIMIT: usize = 128;
 
 #[derive(Debug, Clone)]
 pub enum Event {
@@ -18,6 +21,8 @@ pub enum Event {
     Progress(f32),
     Log(String),
     Done(Box<library::Item>),
+    /// an article-tree job finished (the article folder)
+    ArticleDone(std::path::PathBuf),
     Failed(String),
 }
 
@@ -34,6 +39,8 @@ pub struct Options {
     /// sherpa-onnx ASR model label, e.g. `nemo-de`
     pub asr_model: String,
     pub translate: bool,
+    /// extract the most relevant word pairs (original + translation) as well
+    pub vocabulary: bool,
     /// label of the local ONNX model, e.g. `qwen2.5:3b`
     pub llm_model: Option<String>,
     /// run everything on the GPU when possible
@@ -50,6 +57,7 @@ impl Default for Options {
             target: "en".to_string(),
             asr_model: crate::asr::DEFAULT_MODEL.to_string(),
             translate: true,
+            vocabulary: true,
             llm_model: Some(onnx_llm::DEFAULT_MODEL.to_string()),
             use_gpu: true,
         }
@@ -256,6 +264,8 @@ fn ingest(
                     Err(err) => log(tx, &format!("summary failed: {err}")),
                 }
 
+                // kept for the pair pass: the sentence indexes of `pairs.json`
+                let mut translations: Vec<String> = Vec::new();
                 if options.translate && !sentences.is_empty() {
                     stage(tx, &format!("Translating to {}", options.target), 0.92);
                     let mut progress = |fraction: f32| {
@@ -263,16 +273,96 @@ fn ingest(
                     };
 
                     match model.translate(&sentences, &options.target, &mut progress) {
-                        Ok(translations) => {
-                            let doc = json!({ "target": options.target, "sentences": translations });
+                        Ok(lines) => {
+                            let doc = json!({ "target": options.target, "sentences": &lines });
                             std::fs::write(
                                 dir.join(library::TRANSLATION),
                                 serde_json::to_string_pretty(&doc).unwrap_or_default(),
                             )
                             .map_err(|err| err.to_string())?;
-                            log(tx, &format!("{} sentences translated", translations.len()));
+                            log(tx, &format!("{} sentences translated", lines.len()));
+                            translations = lines;
                         }
                         Err(err) => log(tx, &format!("translation failed: {err}")),
+                    }
+                }
+
+                if options.vocabulary && !sentences.is_empty() {
+                    stage(tx, "Extracting vocabulary", 0.97);
+                    // the vocabulary model is the only part that runs on the CPU:
+                    // its int4 export does not fit a 4 GB card, and the GPU stays
+                    // with the recognizer and the headline model
+                    let vocabulary_label = onnx_llm::VOCABULARY_MODEL;
+                    let tx_for_log = tx.clone();
+                    let mut vocabulary_log = move |message: String| {
+                        if std::env::var_os("TRANSCRIBE_LOG").is_some() {
+                            eprintln!("[vocab] {message}");
+                        }
+                        let _ = tx_for_log.send(Event::Log(message));
+                    };
+
+                    match onnx_llm::Llm::load(
+                        vocabulary_label,
+                        &models_dir(),
+                        false,
+                        &mut vocabulary_log,
+                    ) {
+                        Ok(mut vocabulary) => {
+                            log(tx, &format!("vocabulary model: {}", vocabulary.summary()));
+                            match vocabulary.vocabulary(
+                                &sentences,
+                                &translations,
+                                &meta.language,
+                                &options.target,
+                                VOCABULARY_LIMIT,
+                            ) {
+                                Ok(pairs) => {
+                                    let doc = library::Vocabulary {
+                                        target: options.target.clone(),
+                                        pairs: pairs
+                                            .iter()
+                                            .map(|(de, en)| library::WordPair {
+                                                de: de.clone(),
+                                                en: en.clone(),
+                                            })
+                                            .collect(),
+                                    };
+                                    std::fs::write(
+                                        dir.join(library::VOCABULARY),
+                                        serde_json::to_string_pretty(&doc).unwrap_or_default(),
+                                    )
+                                    .map_err(|err| err.to_string())?;
+
+                                    // the same vocabulary is placed in the sentences;
+                                    // without an article tree there is a single block
+                                    let refs =
+                                        crate::pairs::locate(&pairs, &sentences, &translations);
+                                    if !refs.is_empty() {
+                                        let block = library::PairsBlock {
+                                            index: 0,
+                                            kind: "text".to_string(),
+                                            pairs: refs.clone(),
+                                        };
+                                        crate::pairs::write(
+                                            dir,
+                                            &vocabulary.model,
+                                            &options.target,
+                                            &[block],
+                                        )?;
+                                    }
+                                    log(
+                                        tx,
+                                        &format!(
+                                            "{} vocabulary pairs, {} placed in sentences",
+                                            doc.pairs.len(),
+                                            refs.len()
+                                        ),
+                                    );
+                                }
+                                Err(err) => log(tx, &format!("vocabulary failed: {err}")),
+                            }
+                        }
+                        Err(err) => log(tx, &format!("no vocabulary model: {err}")),
                     }
                 }
             }
@@ -495,6 +585,7 @@ fn seg_from_json(value: &serde_json::Value) -> Option<library::Seg> {
         start: value["start"].as_f64()? as f32,
         end: value["end"].as_f64()? as f32,
         text: value["text"].as_str()?.to_string(),
+        block: None,
     })
 }
 
@@ -697,6 +788,457 @@ fn write_transcription(
 
     write(library::WORDS, &transcription)?;
     write(library::PHRASES, &transcript)
+}
+
+// -------------------------------------------------------------- article tree
+
+/// Configuration of the article-folder pipeline.
+#[derive(Debug, Clone)]
+pub struct ArticleOptions {
+    pub target: String,
+    pub asr_model: String,
+    pub llm_model: Option<String>,
+    pub translate: bool,
+    pub vocabulary: bool,
+    /// ask an external `pi` model for the pairs instead of the local CPU model
+    pub pairs_model: Option<external::PairsModel>,
+    pub use_gpu: bool,
+    /// re-run even when `transcribe/translation.json` already exists
+    pub force: bool,
+}
+
+impl Default for ArticleOptions {
+    fn default() -> Self {
+        Self {
+            target: "en".to_string(),
+            // the crawler articles are German and `nemo-de` emits token
+            // timestamps, so the word highlight is exact and fast
+            asr_model: "nemo-de".to_string(),
+            llm_model: Some(onnx_llm::DEFAULT_MODEL.to_string()),
+            translate: true,
+            vocabulary: true,
+            pairs_model: None,
+            use_gpu: true,
+            force: false,
+        }
+    }
+}
+
+/// One contiguous run of sentences that belongs to the same `article.json`
+/// block.
+struct BlockRun {
+    index: usize,
+    /// index of the run's first sentence in the flat sentence arrays
+    first: usize,
+    count: usize,
+}
+
+/// `articles`: reads `<dir>/article.json`, transcribes the audio it names and
+/// writes `transcription.json` + `translation.json` (plus `vocabulary.json` and
+/// `pairs.json`) into `<dir>/transcribe/`.
+///
+/// `translation.json` keeps the article alignment: `source`/`sentences` are the
+/// sentence-level translation in article order and `blocks[]` records for every
+/// `article.json` paragraph its sentence range and the joined translation, so a
+/// paragraph can be patched 1:1. Returns `false` when the article is skipped
+/// because it is already translated.
+pub fn run_article(
+    dir: &Path,
+    options: &ArticleOptions,
+    tx: &Sender<Event>,
+) -> Result<bool, String> {
+    let article = article::Article::read(dir)?;
+    let audio = article
+        .audio_path(dir)
+        .ok_or_else(|| format!("no audio file in {}", dir.display()))?;
+    let out = dir.join(library::TRANSCRIPT_DIR);
+    if !options.force && out.join(library::TRANSLATION).is_file() {
+        log(tx, &format!("{}: already translated", dir.display()));
+        return Ok(false);
+    }
+    std::fs::create_dir_all(&out).map_err(|err| err.to_string())?;
+
+    let language = if article.language.is_empty() {
+        "de".to_string()
+    } else {
+        article.language.clone()
+    };
+
+    // ------------------------------------------------------------- transcribe
+    stage(tx, "Transcribing", 0.05);
+    let result = transcribe(&options.asr_model, &language, &audio, tx)?;
+    let asr_words = result["words"]
+        .as_array()
+        .map(|words| words.iter().filter_map(seg_from_json).collect::<Vec<_>>())
+        .unwrap_or_default();
+    let duration = result["duration"].as_f64().unwrap_or(0.0) as f32;
+
+    let sections = article.sections();
+    let aligned = align::align_sections(&sections, &asr_words, duration);
+    log(
+        tx,
+        &format!(
+            "{} words in {} sentences aligned to {} recognized words",
+            aligned.words.len(),
+            aligned.sentences.len(),
+            asr_words.len()
+        ),
+    );
+
+    let audio_name = audio
+        .file_name()
+        .map(|name| name.to_string_lossy().to_string())
+        .unwrap_or_default();
+    write_article_transcription(&out, &result, &audio_name, &aligned)?;
+    // the old sentence-level transcript.json is folded into transcription.json
+    let legacy = out.join(library::PHRASES);
+    if legacy.is_file() {
+        let _ = std::fs::remove_file(&legacy);
+        log(tx, "removed legacy transcript.json");
+    }
+
+    // -------------------------------------------------------------- translate
+    let Some(label) = options.llm_model.clone() else {
+        log(tx, "no language model selected: skipping translation");
+        stage(tx, "Done", 1.0);
+        return Ok(true);
+    };
+
+    let source = aligned
+        .sentences
+        .iter()
+        .map(|sentence| sentence.text.clone())
+        .collect::<Vec<_>>();
+
+    // every paragraph as a contiguous run of sentences
+    let mut runs: Vec<BlockRun> = Vec::new();
+    for (index, block) in aligned.sentence_blocks.iter().enumerate() {
+        let Some(block) = block else { continue };
+        match runs.last_mut() {
+            Some(last) if last.index == *block => last.count += 1,
+            _ => runs.push(BlockRun {
+                index: *block,
+                first: index,
+                count: 1,
+            }),
+        }
+    }
+
+    wait_for_free_gpu(tx);
+    stage(tx, &format!("Loading {label}"), 0.55);
+    let _ = onnx_llm::prepare_runtime();
+    let tx_for_log = tx.clone();
+    let mut log_model = move |message: String| {
+        if std::env::var_os("TRANSCRIBE_LOG").is_some() {
+            eprintln!("[llm] {message}");
+        }
+        let _ = tx_for_log.send(Event::Log(message));
+    };
+
+    let mut model = match onnx_llm::Llm::load(&label, &models_dir(), options.use_gpu, &mut log_model) {
+        Ok(model) => model,
+        Err(err) => {
+            log(tx, &format!("no language model: {err}"));
+            stage(tx, "Done", 1.0);
+            return Ok(true);
+        }
+    };
+    let model_name = model.summary();
+    log(tx, &format!("language model: {model_name}"));
+
+    let translations = if options.translate && !source.is_empty() {
+        // sentence by sentence so the graph never allocates a huge logits
+        // buffer and the GPU does not run out of memory on long articles
+        stage(tx, &format!("Translating to {}", options.target), 0.7);
+        let mut progress = |fraction: f32| {
+            let _ = tx.send(Event::Progress(0.7 + 0.2 * fraction));
+        };
+        model
+            .translate(&source, &options.target, &mut progress)
+            .map_err(|err| format!("translation failed: {err}"))?
+    } else {
+        Vec::new()
+    };
+
+    // The vocabulary pass reads only the article body: the sentences of the
+    // `article.json` `blocks[]`, not the title, kicker, description, byline or
+    // image captions that are spoken too but are not article prose. Older
+    // transcripts without block indexes fall back to everything.
+    let pair_indexes: Vec<usize> = {
+        let body: Vec<usize> = (0..source.len())
+            .filter(|index| aligned.sentence_blocks.get(*index).copied().flatten().is_some())
+            .collect();
+        if body.is_empty() {
+            (0..source.len()).collect()
+        } else {
+            body
+        }
+    };
+    let pair_source: Vec<String> = pair_indexes.iter().map(|i| source[*i].clone()).collect();
+    let pair_translations: Vec<String> = pair_indexes
+        .iter()
+        .map(|i| translations.get(*i).cloned().unwrap_or_default())
+        .collect();
+    // `blocks` mirrors `article.json`'s `blocks[]` one-to-one with images
+    // skipped: every text block appears once, with its source sentences, the
+    // translated sentences and the joined paragraph translation.
+    let mut runs_by_index = std::collections::HashMap::new();
+    for run in &runs {
+        runs_by_index.insert(run.index, (run.first, run.count));
+    }
+
+    // `(index, kind, first, count)` per text block, in `article.json` order
+    let ranges = article
+        .blocks
+        .iter()
+        .enumerate()
+        .filter(|(_, block)| !matches!(block, article::Block::Image { .. }))
+        .map(|(index, block)| {
+            let (first, count) = runs_by_index.get(&index).copied().unwrap_or((0, 0));
+            (index, block.kind(), first, count)
+        })
+        .collect::<Vec<_>>();
+
+    // `blocks` mirrors `article.json`'s `blocks[]` one-to-one with images
+    // skipped: every text block appears once, with its source sentences, the
+    // translated sentences and the joined paragraph translation.
+    let blocks = ranges
+        .iter()
+        .map(|(index, kind, first, count)| {
+            let block_source = source.get(*first..*first + *count).unwrap_or(&[]);
+            let block_sentences = translations.get(*first..*first + *count).unwrap_or(&[]);
+            json!({
+                "index": index,
+                "kind": kind,
+                "first": first,
+                "count": count,
+                "source": block_source,
+                "sentences": block_sentences,
+                "translation": block_sentences.join(" "),
+            })
+        })
+        .collect::<Vec<_>>();
+
+    write_article_translation(
+        &out,
+        &options.target,
+        &language,
+        &model_name,
+        &source,
+        &translations,
+        &blocks,
+    )?;
+
+    if options.vocabulary && !source.is_empty() && !translations.is_empty() {
+        stage(tx, "Extracting vocabulary", 0.93);
+        let (pairs, model_label) = extract_pairs(options, &pair_source, &pair_translations, &language, tx);
+        if !pairs.is_empty() {
+            let doc = library::Vocabulary {
+                target: options.target.clone(),
+                pairs: pairs
+                    .iter()
+                    .map(|(de, en)| library::WordPair {
+                        de: de.clone(),
+                        en: en.clone(),
+                    })
+                    .collect(),
+            };
+            std::fs::write(
+                out.join(library::VOCABULARY),
+                serde_json::to_string_pretty(&doc).unwrap_or_default(),
+            )
+            .map_err(|err| err.to_string())?;
+
+            let refs = crate::pairs::locate(&pairs, &source, &translations);
+            let placed = if refs.is_empty() {
+                0
+            } else {
+                let pair_blocks = crate::pairs::group(&refs, &ranges);
+                let placed = pair_blocks.iter().map(|block| block.pairs.len()).sum::<usize>();
+                crate::pairs::write(&out, &model_label, &options.target, &pair_blocks)?;
+                placed
+            };
+            log(
+                tx,
+                &format!(
+                    "{} vocabulary pairs, {placed} placed in sentences",
+                    doc.pairs.len()
+                ),
+            );
+        }
+    }
+
+    stage(tx, "Done", 1.0);
+    Ok(true)
+}
+
+/// The vocabulary pairs for the sentence arrays: the external `pi` model when
+/// `options.pairs_model` is set, else the local CPU model. Returns the pairs and
+/// the model label recorded in `pairs.json`.
+fn extract_pairs(
+    options: &ArticleOptions,
+    source: &[String],
+    translations: &[String],
+    language: &str,
+    tx: &Sender<Event>,
+) -> (Vec<(String, String)>, String) {
+    if let Some(pairs_model) = &options.pairs_model {
+        let tx_for_log = tx.clone();
+        let mut log_external = move |message: String| {
+            if std::env::var_os("TRANSCRIBE_LOG").is_some() {
+                eprintln!("[pairs] {message}");
+            }
+            let _ = tx_for_log.send(Event::Log(message));
+        };
+        match external::vocabulary(
+            pairs_model,
+            source,
+            translations,
+            language,
+            &options.target,
+            VOCABULARY_LIMIT,
+            &mut log_external,
+        ) {
+            Ok(pairs) => return (pairs, pairs_model.label()),
+            Err(err) => {
+                let _ = tx.send(Event::Log(format!(
+                    "external pairs failed ({err}); falling back to {}",
+                    onnx_llm::VOCABULARY_MODEL
+                )));
+            }
+        }
+    }
+
+    match load_vocabulary_model(tx) {
+        Ok(mut vocabulary) => {
+            let label = vocabulary.model.clone();
+            log(tx, &format!("vocabulary model: {}", vocabulary.summary()));
+            match vocabulary.vocabulary(
+                source,
+                translations,
+                language,
+                &options.target,
+                VOCABULARY_LIMIT,
+            ) {
+                Ok(pairs) => (pairs, label),
+                Err(err) => {
+                    log(tx, &format!("vocabulary failed: {err}"));
+                    (Vec::new(), label)
+                }
+            }
+        }
+        Err(err) => {
+            log(tx, &format!("no vocabulary model: {err}"));
+            (Vec::new(), String::new())
+        }
+    }
+}
+
+/// The vocabulary model is the only one that runs on the CPU: its int4 export
+/// does not fit a 4 GB card.
+fn load_vocabulary_model(tx: &Sender<Event>) -> Result<onnx_llm::Llm, String> {
+    let tx_for_log = tx.clone();
+    let mut log = move |message: String| {
+        if std::env::var_os("TRANSCRIBE_LOG").is_some() {
+            eprintln!("[vocab] {message}");
+        }
+        let _ = tx_for_log.send(Event::Log(message));
+    };
+    onnx_llm::Llm::load(onnx_llm::VOCABULARY_MODEL, &models_dir(), false, &mut log)
+}
+
+/// `transcription.json` for the article tree: word segments (each tagged with
+/// its sentence and `article.json` block) plus the sentence segments, so word
+/// sync needs no separate `transcript.json`.
+fn write_article_transcription(
+    out: &Path,
+    result: &serde_json::Value,
+    audio: &str,
+    aligned: &align::AlignedSections,
+) -> Result<(), String> {
+    let language = result["language"].as_str().unwrap_or("unknown");
+    let text = aligned
+        .words
+        .iter()
+        .map(|word| word.text.as_str())
+        .collect::<String>()
+        .trim()
+        .to_string();
+
+    let word_segments = aligned
+        .words
+        .iter()
+        .enumerate()
+        .map(|(index, word)| {
+            let sentence = aligned.word_sentences.get(index).copied().unwrap_or(0);
+            let block = aligned.sentence_blocks.get(sentence).copied().flatten();
+            json!({
+                "start": word.start,
+                "end": word.end,
+                "speaker_id": null,
+                "text": word.text,
+                "type": "transcription_segment",
+                "sentence": sentence,
+                "block": block,
+            })
+        })
+        .collect::<Vec<_>>();
+
+    let sentence_segments = aligned
+        .sentences
+        .iter()
+        .enumerate()
+        .map(|(index, sentence)| {
+            json!({
+                "start": sentence.start,
+                "end": sentence.end,
+                "text": sentence.text,
+                "block": aligned.sentence_blocks.get(index).copied().flatten(),
+            })
+        })
+        .collect::<Vec<_>>();
+
+    let transcription = json!({
+        "file": audio,
+        "language": language,
+        "model": result["model"],
+        "segments": word_segments,
+        "sentences": sentence_segments,
+        "text": text,
+        "type": "transcription.done",
+        "usage": {
+            "prompt_audio_seconds": result["duration"].as_f64().unwrap_or_default().round(),
+            "request_count": 1,
+            "device": result["device"],
+            "elapsed_seconds": result["elapsed"],
+        },
+    });
+
+    let raw = serde_json::to_string_pretty(&transcription).map_err(|err| err.to_string())?;
+    std::fs::write(out.join(library::WORDS), raw).map_err(|err| err.to_string())
+}
+
+/// `translation.json` for the article tree: the sentence-level translation and
+/// the `article.json` paragraph alignment used for 1:1 patching.
+fn write_article_translation(
+    out: &Path,
+    target: &str,
+    language: &str,
+    model: &str,
+    source: &[String],
+    sentences: &[String],
+    blocks: &[serde_json::Value],
+) -> Result<(), String> {
+    let doc = json!({
+        "target": target,
+        "language": language,
+        "model": model,
+        "source": source,
+        "sentences": sentences,
+        "blocks": blocks,
+    });
+    let raw = serde_json::to_string_pretty(&doc).map_err(|err| err.to_string())?;
+    std::fs::write(out.join(library::TRANSLATION), raw).map_err(|err| err.to_string())
 }
 
 fn fallback_title(phrases: &[serde_json::Value], url: &str) -> String {

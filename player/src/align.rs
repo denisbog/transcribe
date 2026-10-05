@@ -25,11 +25,58 @@ struct Token {
     sentence: usize,
 }
 
-/// Aligns `article` to `asr_words`; `duration` is the audio length in seconds.
-pub fn align(article: &str, asr_words: &[Seg], duration: f32) -> Aligned {
-    let sentences = split_sentences(&clean_markdown(article));
-    let mut tokens: Vec<Token> = Vec::new();
+/// One piece of the spoken article: its prose and the `article.json` block it
+/// belongs to (`None` for the title, kicker, description, byline and image
+/// captions, which are spoken but not part of a paragraph).
+#[derive(Debug, Clone, Default)]
+pub struct Section {
+    pub block: Option<usize>,
+    pub text: String,
+}
 
+/// A section-aligned article: words and sentences plus the block of every
+/// sentence, so a translation can be patched back into `article.json` 1:1.
+#[derive(Debug, Clone, Default)]
+pub struct AlignedSections {
+    /// One segment per sentence, in article order.
+    pub sentences: Vec<Seg>,
+    /// The `article.json` block of each sentence, parallel to `sentences`.
+    pub sentence_blocks: Vec<Option<usize>>,
+    /// One segment per word, in order.
+    pub words: Vec<Seg>,
+    /// The sentence index of each word, parallel to `words`.
+    pub word_sentences: Vec<usize>,
+}
+
+/// Aligns `article` (markdown) to `asr_words`; `duration` is the audio length
+/// in seconds.
+pub fn align(article: &str, asr_words: &[Seg], duration: f32) -> Aligned {
+    let sections = vec![Section {
+        block: None,
+        text: clean_markdown(article),
+    }];
+    let aligned = align_sections(&sections, asr_words, duration);
+    Aligned {
+        sentences: aligned.sentences,
+        words: aligned.words,
+    }
+}
+
+/// Aligns the spoken sections of an article to `asr_words`. Sentences never
+/// cross a section boundary, so `sentence_blocks` maps every sentence back to
+/// the `article.json` block it belongs to.
+pub fn align_sections(sections: &[Section], asr_words: &[Seg], duration: f32) -> AlignedSections {
+    // sentences in article order, each with the block it belongs to
+    let mut sentences: Vec<String> = Vec::new();
+    let mut sentence_blocks: Vec<Option<usize>> = Vec::new();
+    for section in sections {
+        for sentence in split_sentences(&section.text) {
+            sentences.push(sentence);
+            sentence_blocks.push(section.block);
+        }
+    }
+
+    let mut tokens: Vec<Token> = Vec::new();
     for (index, sentence) in sentences.iter().enumerate() {
         for word in sentence.split_whitespace() {
             let key = key_of(word);
@@ -57,19 +104,6 @@ pub fn align(article: &str, asr_words: &[Seg], duration: f32) -> Aligned {
     }
     interpolate(&mut times, duration);
 
-    let words = tokens
-        .iter()
-        .zip(&times)
-        .filter_map(|(token, time)| {
-            let (start, end) = (*time)?;
-            Some(Seg {
-                start,
-                end: end.max(start + 0.02),
-                text: token.text.clone(),
-            })
-        })
-        .collect::<Vec<_>>();
-
     // token ranges per sentence (tokens are pushed in sentence order)
     let mut ranges = vec![None::<(usize, usize)>; sentences.len()];
     for (index, token) in tokens.iter().enumerate() {
@@ -86,29 +120,53 @@ pub fn align(article: &str, asr_words: &[Seg], duration: f32) -> Aligned {
     // phrase.end - 0.08`), so a sentence must end after its own last word
     // (min. 0.1 s) but before the next sentence's first word would be pulled in.
     let mut out_sentences = Vec::with_capacity(covered.len());
-    for (position, &index) in covered.iter().enumerate() {
+    let mut out_blocks = Vec::with_capacity(covered.len());
+    // original sentence index -> position in the returned sentence list
+    let mut position = vec![0usize; sentences.len()];
+    for (slot, &index) in covered.iter().enumerate() {
         let (first, last) = ranges[index].expect("covered sentences have tokens");
-        let start = words[first].start;
-        let mut end = words[last].end.max(words[last].start + 0.1);
+        let (first_start, _) = times[first].unwrap_or((0.0, 0.0));
+        let (last_start, last_end) = times[last].unwrap_or((0.0, 0.0));
+        let mut end = last_end.max(last_start + 0.1);
 
-        if let Some(&following) = covered.get(position + 1) {
-            let next_start = words[ranges[following].expect("covered").0].start;
-            end = end.min(next_start + 0.079).max(words[last].start + 0.09);
+        if let Some(&following) = covered.get(slot + 1) {
+            let (next_start, _) =
+                times[ranges[following].expect("covered").0].unwrap_or((0.0, 0.0));
+            end = end.min(next_start + 0.079).max(last_start + 0.09);
         }
 
         out_sentences.push(Seg {
-            start,
+            start: first_start,
             end,
             text: sentences[index].clone(),
+            block: sentence_blocks[index],
         });
+        out_blocks.push(sentence_blocks[index]);
+        position[index] = slot;
     }
 
-    Aligned {
+    let mut words = Vec::with_capacity(tokens.len());
+    let mut word_sentences = Vec::with_capacity(tokens.len());
+    for (token, time) in tokens.iter().zip(&times) {
+        let Some((start, end)) = *time else {
+            continue;
+        };
+        words.push(Seg {
+            start,
+            end: end.max(start + 0.02),
+            text: token.text.clone(),
+            block: None,
+        });
+        word_sentences.push(position[token.sentence]);
+    }
+
+    AlignedSections {
         sentences: out_sentences,
+        sentence_blocks: out_blocks,
         words,
+        word_sentences,
     }
 }
-
 /// The article as spoken prose: YAML frontmatter, heading/blockquote markers,
 /// emphasis, links, images and inline HTML are removed; paragraphs stay on
 /// their own lines.
@@ -415,6 +473,7 @@ mod tests {
             start,
             end,
             text: text.to_string(),
+            block: None,
         }
     }
 
@@ -512,5 +571,45 @@ mod tests {
             assert!(next > start, "sentence {:?} got no words", phrase.text);
         }
         assert_eq!(next, aligned.words.len());
+    }
+
+    #[test]
+    fn sections_keep_the_article_block() {
+        let sections = vec![
+            Section {
+                block: None,
+                text: "Titel".to_string(),
+            },
+            Section {
+                block: Some(1),
+                text: "Erster Satz. Zweiter Satz.".to_string(),
+            },
+            Section {
+                block: Some(2),
+                text: "Dritter Satz.".to_string(),
+            },
+        ];
+        let asr = vec![
+            seg(0.0, 0.4, "Titel"),
+            seg(0.4, 0.8, "Erster"),
+            seg(0.8, 1.2, "Satz"),
+            seg(1.2, 1.6, "Zweiter"),
+            seg(1.6, 2.0, "Satz"),
+            seg(2.0, 2.4, "Dritter"),
+            seg(2.4, 2.8, "Satz"),
+        ];
+
+        let aligned = align_sections(&sections, &asr, 3.0);
+
+        assert_eq!(
+            aligned.sentence_blocks,
+            vec![None, Some(1), Some(1), Some(2)]
+        );
+        assert_eq!(aligned.sentences.len(), 4);
+        assert_eq!(aligned.words.len(), asr.len());
+        assert!(aligned
+            .word_sentences
+            .iter()
+            .all(|index| *index < aligned.sentences.len()));
     }
 }

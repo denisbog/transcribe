@@ -19,6 +19,10 @@ pub const META: &str = "meta.json";
 pub const WORDS: &str = "transcription.json";
 pub const PHRASES: &str = "transcript.json";
 pub const TRANSLATION: &str = "translation.json";
+pub const VOCABULARY: &str = "vocabulary.json";
+pub const PAIRS: &str = "pairs.json";
+/// The output folder inside each crawler article (`<article>/transcribe/`).
+pub const TRANSCRIPT_DIR: &str = "transcribe";
 
 pub fn default_audio() -> String {
     "audio.mp3".to_string()
@@ -53,6 +57,102 @@ pub struct Seg {
     pub start: f32,
     pub end: f32,
     pub text: String,
+    /// The `article.json` block this sentence belongs to (`None` for words and
+    /// for the spoken metadata around the article body).
+    #[serde(default)]
+    pub block: Option<usize>,
+}
+
+/// `translation.json`: the sentence-level translation, aligned 1:1 with the
+/// sentence segments of `transcription.json`, plus the `article.json` paragraph
+/// alignment used for 1:1 patching.
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct Translation {
+    #[serde(default)]
+    pub target: String,
+    /// target-language sentences, parallel to the source sentences
+    #[serde(default)]
+    pub sentences: Vec<String>,
+    /// source-language sentences (article tree output only)
+    #[serde(default)]
+    pub source: Vec<String>,
+    /// one entry per `article.json` paragraph
+    #[serde(default)]
+    pub blocks: Vec<TranslationBlock>,
+}
+
+/// One `article.json` paragraph inside `translation.json`.
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct TranslationBlock {
+    /// index into the article's `blocks[]`
+    #[serde(default)]
+    pub index: usize,
+    #[serde(default)]
+    pub kind: String,
+    /// first sentence of the paragraph in `source`/`sentences`
+    #[serde(default)]
+    pub first: usize,
+    #[serde(default)]
+    pub count: usize,
+    /// the paragraph translation, sentences joined with a space
+    #[serde(default)]
+    pub translation: String,
+}
+
+/// One vocabulary entry: the original phrase and its translation.
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct WordPair {
+    #[serde(alias = "german", alias = "source", alias = "original")]
+    pub de: String,
+    #[serde(alias = "english", alias = "target", alias = "translation")]
+    pub en: String,
+}
+
+/// `vocabulary.json`: the most relevant word pairs of an article.
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct Vocabulary {
+    #[serde(default)]
+    pub target: String,
+    #[serde(default)]
+    pub pairs: Vec<WordPair>,
+}
+
+/// One vocabulary pairing: the word indexes of the original phrase and of its
+/// translation inside one sentence of a block.
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub struct PairRef {
+    /// index of the sentence inside the block's `source`/`sentences` arrays
+    pub sentence: usize,
+    #[serde(default)]
+    pub de: String,
+    #[serde(default)]
+    pub en: String,
+    pub source: Vec<usize>,
+    pub target: Vec<usize>,
+}
+
+/// One `article.json` block in `pairs.json`, mirroring `translation.json`.
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct PairsBlock {
+    /// index into the article's `blocks[]`
+    #[serde(default)]
+    pub index: usize,
+    #[serde(default)]
+    pub kind: String,
+    #[serde(default)]
+    pub pairs: Vec<PairRef>,
+}
+
+/// `pairs.json`: the word pairings of original and translation, grouped the
+/// same way as `article.json`'s `blocks[]` (images skipped).
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct Pairs {
+    #[serde(default)]
+    pub model: String,
+    #[serde(default)]
+    pub target: String,
+    #[serde(default)]
+    pub blocks: Vec<PairsBlock>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -141,17 +241,28 @@ impl Item {
             })
     }
 
-    pub fn translation(&self) -> Vec<String> {
-        #[derive(Deserialize)]
-        struct Doc {
-            #[serde(default)]
-            sentences: Vec<String>,
-        }
-
+    pub fn translation(&self) -> Translation {
         std::fs::read_to_string(self.path(TRANSLATION))
             .ok()
-            .and_then(|raw| serde_json::from_str::<Doc>(&raw).ok())
-            .map(|doc| doc.sentences)
+            .and_then(|raw| serde_json::from_str::<Translation>(&raw).ok())
+            .unwrap_or_default()
+    }
+
+    /// The article's vocabulary pairs, empty when the pass has not run.
+    pub fn vocabulary(&self) -> Vec<WordPair> {
+        std::fs::read_to_string(self.path(VOCABULARY))
+            .ok()
+            .and_then(|raw| serde_json::from_str::<Vocabulary>(&raw).ok())
+            .map(|doc| doc.pairs)
+            .unwrap_or_default()
+    }
+
+    /// The article's word pairings, grouped by `article.json` block.
+    pub fn pairs(&self) -> Vec<PairsBlock> {
+        std::fs::read_to_string(self.path(PAIRS))
+            .ok()
+            .and_then(|raw| serde_json::from_str::<Pairs>(&raw).ok())
+            .map(|doc| doc.blocks)
             .unwrap_or_default()
     }
 }
@@ -166,26 +277,6 @@ pub fn root() -> PathBuf {
     home.join("transcribe-library")
 }
 
-pub fn list() -> Vec<Item> {
-    let root = root();
-    let Ok(entries) = std::fs::read_dir(&root) else {
-        return Vec::new();
-    };
-
-    let mut items = Vec::new();
-    for entry in entries.flatten() {
-        let dir = entry.path();
-        if !dir.is_dir() {
-            continue;
-        }
-        if let Some(meta) = read_meta(&dir) {
-            items.push(Item { dir, meta });
-        }
-    }
-
-    items.sort_by_key(|item| std::cmp::Reverse(item.meta.created));
-    items
-}
 
 pub fn read_meta(dir: &Path) -> Option<Meta> {
     let raw = std::fs::read_to_string(dir.join(META)).ok()?;
@@ -198,9 +289,6 @@ pub fn write_meta(dir: &Path, meta: &Meta) -> Result<(), String> {
     std::fs::write(dir.join(META), raw).map_err(|err| err.to_string())
 }
 
-pub fn remove(item: &Item) -> Result<(), String> {
-    std::fs::remove_dir_all(&item.dir).map_err(|err| err.to_string())
-}
 
 /// A unique, readable folder name for a new article.
 pub fn directory(id_source: &str) -> PathBuf {

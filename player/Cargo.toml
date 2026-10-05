@@ -5,6 +5,8 @@ edition = "2021"
 
 [dependencies]
 chrono = { version = "0.4.45", default-features = false, features = ["clock"] }
+clap = { version = "4", features = ["derive"] }
+indicatif = "0.17"
 iced = { version = "0.14", features = ["tokio"] }
 libc = "0.2"
 libloading = "0.9.0"
@@ -25,6 +27,7 @@ sherpa-onnx = { version = "1.13.8", default-features = false, features = ["share
 symphonia = { version = "0.5.5", features = ["mp3", "aac", "flac", "vorbis", "wav", "ogg", "isomp4", "mkv", "pcm", "aiff", "caf"] }
 tokenizers = "0.23.2"
 ureq = { version = "3.4.2", features = ["json"] }
+toml = "0.8"
 
 [profile.dev]
 opt-level = 1

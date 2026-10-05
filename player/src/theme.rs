@@ -5,8 +5,7 @@ use std::borrow::Cow;
 use iced::border::{self, Border};
 use iced::font::{Font, Weight};
 use iced::widget::{
-    button, container, pick_list, progress_bar, scrollable, slider, text, text_input,
-    toggler,
+    button, container, progress_bar, scrollable, slider, text, toggler,
 };
 use iced::{Color, Shadow, Theme, Vector};
 
@@ -221,6 +220,34 @@ pub fn word(_theme: &Theme, status: button::Status, active: bool) -> button::Sty
     }
 }
 
+/// A word in the "now playing" panel that belongs to a vocabulary pair.
+pub fn word_pair(_theme: &Theme, status: button::Status, active: bool) -> button::Style {
+    let background = if active {
+        Some(ACCENT.into())
+    } else {
+        match status {
+            button::Status::Hovered => Some(accent_tint(0.32).into()),
+            _ => Some(accent_tint(0.18).into()),
+        }
+    };
+
+    button::Style {
+        background,
+        text_color: if active { WHITE } else { ACCENT_HI },
+        border: border::rounded(8),
+        ..Default::default()
+    }
+}
+
+/// A translation word highlighted because it is part of a vocabulary pair.
+pub fn pair_chip(_theme: &Theme) -> container::Style {
+    container::Style {
+        background: Some(accent_tint(0.20).into()),
+        border: border::rounded(5),
+        ..Default::default()
+    }
+}
+
 /// One sentence in the transcript list.
 pub fn sentence(
     _theme: &Theme,
@@ -343,27 +370,6 @@ pub fn toggle(_theme: &Theme, status: toggler::Status) -> toggler::Style {
 
 // ---------------------------------------------------------------- inputs
 
-/// Text input: dark field, hairline border, accent border while focused.
-pub fn input(_theme: &Theme, status: text_input::Status) -> text_input::Style {
-    let border = match status {
-        text_input::Status::Focused { .. } => accent_tint(0.75),
-        text_input::Status::Hovered => alpha_color(TEXT_MUTED, 0.8),
-        _ => BORDER,
-    };
-
-    text_input::Style {
-        background: BG.into(),
-        border: Border {
-            color: border,
-            width: 1.0,
-            radius: 10.0.into(),
-        },
-        icon: TEXT_DIM,
-        placeholder: TEXT_MUTED,
-        value: TEXT,
-        selection: ACCENT,
-    }
-}
 
 /// A small labelled chip that looks like a button (`±5 s`, `New article`).
 pub fn chip(_theme: &Theme, status: button::Status) -> button::Style {
@@ -492,23 +498,3 @@ pub fn success_text(_theme: &Theme) -> text::Style {
     }
 }
 
-/// Styling for the `pick_list` used to choose the Whisper model.
-pub fn picker(_theme: &Theme, status: pick_list::Status) -> pick_list::Style {
-    let border = match status {
-        pick_list::Status::Opened { .. } => accent_tint(0.7),
-        pick_list::Status::Hovered => alpha_color(TEXT_MUTED, 0.8),
-        pick_list::Status::Active => BORDER,
-    };
-
-    pick_list::Style {
-        text_color: TEXT,
-        placeholder_color: TEXT_MUTED,
-        handle_color: TEXT_DIM,
-        background: BG.into(),
-        border: Border {
-            color: border,
-            width: 1.0,
-            radius: 10.0.into(),
-        },
-    }
-}

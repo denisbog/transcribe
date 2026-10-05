@@ -32,6 +32,8 @@ article into an article-faithful transcript (text + timings + translation).
 | `transcription.json` | article words with timings: `{language, model, segments:[{start,end,speaker_id,text,type}], text, type, usage}` |
 | `translation.json` | `{"target":"en","sentences":[...]}` aligned 1:1 with `transcript.json` segments |
 | `meta.json` | refresh `description`, `words`, `sentences` counts |
+| `vocabulary.json` | `{"target":"en","pairs":[{"de":..., "en":...}]}` — the article's most relevant German→English word pairs (optional pass) |
+| `pairs.json` | `{"pairs":[{"sentence":n,"de":...,"en":...,"source":[i...],"target":[j...]}]}` — each vocabulary pair placed in its sentence, with the word indexes on both sides |
 
 Keep the original `model`, `language`, `duration`, `usage` and the
 `transcription_segment` / `transcription.done` type strings.

@@ -23,7 +23,6 @@ use symphonia::core::probe::Hint;
 use crate::library::Seg;
 
 pub const DEFAULT_MODEL: &str = "whisper-turbo";
-pub const MODELS: &[&str] = &["nemo-de", "whisper-turbo", "canary-180m", "whisper-large-v3"];
 
 /// One prebuilt sherpa-onnx model.
 #[derive(Debug, Clone)]
@@ -348,6 +347,7 @@ impl Asr {
                     start: from,
                     end: to,
                     text: sentence,
+                    block: None,
                 });
             }
 
@@ -605,6 +605,7 @@ fn token_words(result: &OfflineRecognizerResult, offset: f32) -> Vec<Seg> {
                 start,
                 end,
                 text: piece,
+                block: None,
             }),
             (false, Some(last)) => {
                 last.text.push_str(&piece);
@@ -614,6 +615,7 @@ fn token_words(result: &OfflineRecognizerResult, offset: f32) -> Vec<Seg> {
                 start,
                 end,
                 text: piece,
+                block: None,
             }),
         }
     }
@@ -640,6 +642,7 @@ fn interpolate(text: &str, start: f32, end: f32) -> Vec<Seg> {
             start: cursor,
             end: (cursor + length).min(end),
             text: word.to_string(),
+            block: None,
         });
         cursor += length;
     }
